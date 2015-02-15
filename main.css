@@ -60,11 +60,12 @@ ul {
   height: 72px;
   margin-right: 1em;
   vertical-align: top;
-  margin-top: 12px;
+  margin: 12px 0 4px 0;
 }
 
 .header__title {
   font-weight: 300;
+  flex-grow: 1;
   margin: 0.5em 0.25em;
   color: #212121;
 }
@@ -131,9 +132,9 @@ ul {
 
 main {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
-  width: 100%;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
 }
 
 /*
@@ -142,6 +143,10 @@ main {
  *
  */
 
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 /*
  *
@@ -150,12 +155,12 @@ main {
  */
 
 .hero {
-  float: left;
   width: 100%;
   position: relative;
   background-image: url("./images/dog.jpg");
   background-size: cover;
   height: 300px;
+  order: 1;
 }
 
 .hero article {
@@ -184,6 +189,7 @@ main {
   height: 300px;
   border-bottom: 1px solid #E0E0E0;
   padding: 1em;
+  order: 2;
 }
 
 .news__title {
@@ -228,6 +234,7 @@ main {
   width: 100%;
   float: left;
   padding-top: 1em;
+  order: 3;
 }
 
 .scores__table {
@@ -274,9 +281,9 @@ main {
  */
 
 .weather {
-  float: right;
   width: 100%;
   padding: 1em;
+  order: 4;
 }
 
 .weather__location {
@@ -332,6 +339,7 @@ main {
 .recent-news {
   clear: both;
   padding: 1em;
+  order: 5;
 }
 
 .snippet {
@@ -384,4 +392,54 @@ footer a {
   min-width: 48px;
   text-align: center;
   text-decoration: none;
+}
+
+@media screen and (min-width: 450px) {
+  .header__title {
+    font-size: 2.5em;
+  }
+  .menu {
+    display: none;
+  }
+  .nav {
+    max-height: 500px;
+  }
+  .nav__list {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .header__title {
+    font-size: 3em;
+  }
+  
+  .hero {
+    width: 50%;
+  } 
+  
+  .weather {
+    order: 1;
+    width: 50%;
+  }
+  
+  .top-news {
+    width: 50%;
+  }
+  
+  .scores {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    width: 1024px;
+    margin: 0 auto 0 auto;
+  } 
+  
+  .header__title {
+    font-size: 3.5em;
+  }
 }
